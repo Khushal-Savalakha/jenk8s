@@ -36,3 +36,17 @@ change shell from /bin/false to /bin/bash
   sudo usermod -aG docker jenkins
   sudo chmod 777 /var/run/docker.sock
 ```
+
+## Granting Passwordless ALL Commands
+Edit the sudoers file using:
+
+```
+sudo visudo
+```
+
+Inside the file, below the `root` entry, add the Jenkins entry:
+
+```
+root    ALL=(ALL)       ALL
+jenkins ALL=(ALL)       NOPASSWD: ALL
+```
